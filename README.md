@@ -4,7 +4,7 @@ Aplicação web responsiva para consulta de clima atual e previsão dos próximo
 
 ## 🔗 Acesse o projeto
 
-[Ver site publicado](COLOQUE_AQUI_O_LINK_DO_GITHUB_PAGES)
+[Ver site publicado](https://devguicrm.github.io/Clima-App/)
 
 ## 📌 Sobre o projeto
 
