@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ClimaNow: aplicação web para consulta de clima atual e previsão dos próximos dias." />
+  <title>ClimaNow | Weather App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="#" class="brand" aria-label="ClimaNow">
+        <span class="brand-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+        <span>Clima<span>Now</span></span>
+      </a>
+
+      <div class="search-box">
+        <label for="cityInput">Pesquisar cidade</label>
+        <form id="searchForm">
+          <div class="input-group">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="cityInput" placeholder="Ex: Curitiba, Paranaguá..." autocomplete="off" required>
+            <button type="submit" aria-label="Pesquisar"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </form>
+      </div>
+
+      <button class="location-btn" id="locationBtn">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        Usar minha localização
+      </button>
+
+      <div class="quick-cities">
+        <p>Cidades rápidas</p>
+        <button data-city="Paranaguá">Paranaguá</button>
+        <button data-city="Curitiba">Curitiba</button>
+        <button data-city="São Paulo">São Paulo</button>
+        <button data-city="Rio de Janeiro">Rio de Janeiro</button>
+      </div>
+
+        
+    </aside>
+
+    <main class="main-content">
+      <nav class="topbar">
+        <div>
+          <span class="eyebrow">Weather App</span>
+          <h1>Consulta de clima em tempo real</h1>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </nav>
+
+      <section class="status-card" id="statusCard">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <span>Carregando previsão...</span>
+      </section>
+
+      <section class="weather-hero hidden" id="weatherHero">
+        <div class="weather-main-card">
+          <div class="weather-location">
+            <div>
+              <span id="countryBadge">Brasil</span>
+              <h2 id="cityName">Paranaguá</h2>
+              <p id="dateText">Hoje</p>
+            </div>
+            <div class="weather-icon" id="weatherIcon">☀️</div>
+          </div>
+
+          <div class="temperature-row">
+            <strong id="currentTemp">--°</strong>
+            <div>
+              <h3 id="weatherDescription">Carregando</h3>
+              <p id="feelsText">Sensação térmica --°C</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-details-grid">
+          <article class="detail-card">
+            <i class="fa-solid fa-droplet"></i>
+            <span>Umidade</span>
+            <strong id="humidityValue">--%</strong>
+          </article>
+
+          <article class="detail-card">
+            <i class="fa-solid fa-wind"></i>
+            <span>Vento</span>
+            <strong id="windValue">-- km/h</strong>
+          </article>
+
+          <article class="detail-card">
+            <i class="fa-solid fa-cloud-rain"></i>
+            <span>Chuva</span>
+            <strong id="rainValue">-- mm</strong>
+          </article>
+
+          <article class="detail-card">
+            <i class="fa-solid fa-sun"></i>
+            <span>UV</span>
+            <strong id="uvValue">--</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-grid hidden" id="contentGrid">
+        <div class="forecast-panel">
+          <div class="section-title">
+            <div>
+              <span>Próximos dias</span>
+              <h2>Previsão semanal</h2>
+            </div>
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+
+          <div class="forecast-list" id="forecastList"></div>
+        </div>
+
+        <div class="hourly-panel">
+          <div class="section-title">
+            <div>
+              <span>Hoje</span>
+              <h2>Temperatura por horário</h2>
+            </div>
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+
+          <div class="hourly-scroll" id="hourlyList"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
